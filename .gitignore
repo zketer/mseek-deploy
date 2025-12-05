@@ -1,0 +1,51 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
+
+# 敏感配置文件（生产环境）
+.env
+config/prod.env
+config/env.config
+
+# Cloudflare 敏感文件
+claudeflare/cloudflared-linux-amd64
+claudeflare/minio-tunnel-config.yml
+claudeflare/minio_nginx.conf
+claudeflare/tunnel-manager.sh
+
+# Nginx 敏感文件
+services/common/nginx/cert/
+services/common/nginx/web/
+
+# 数据库初始化文件（包含敏感数据）
+services/common/mysql/init/mseek_museum.sql
+services/common/mysql/init/mseek_file.sql
+services/common/mysql/init/mseek_auth.sql
+services/common/mysql/init/mseek_user.sql
+
+# IDEA 项目文件
+.idea/
+/services/business/
+/services/common/nginx/conf/default.conf
+/services/common/nginx/conf/nginx.conf

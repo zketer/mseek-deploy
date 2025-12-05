@@ -1,0 +1,33 @@
+# Cloudflare Tunnel 配置文件示例
+# 用于 MinIO API 和控制台的隧道配置
+# 注意: 请将以下占位符替换为您的实际值
+# - your-tunnel-id: 替换为您的实际隧道ID
+# - your-tunnel-id.json: 替换为您的实际凭证文件名
+# - your-domain.com: 替换为您的实际域名
+
+tunnel: your-tunnel-id
+credentials-file: /root/.cloudflared/your-tunnel-id.json
+
+ingress:
+  - hostname: minio-api.your-domain.com
+    service: http://localhost:80
+    originRequest:
+      httpHostHeader: minio-api.your-domain.com
+      noTLSVerify: true
+      connectTimeout: 30s
+      tcpKeepAlive: 30s
+  - hostname: minio-console.your-domain.com
+    service: http://localhost:80
+    originRequest:
+      httpHostHeader: minio-console.your-domain.com
+      noTLSVerify: true
+      connectTimeout: 30s
+      tcpKeepAlive: 30s
+
+  - service: http_status:404
+
+loglevel: info
+logfile: /opt/claudeflare/cloudflared-minio.log
+protocol: quic
+retries: 3
+grace-period: 30s
