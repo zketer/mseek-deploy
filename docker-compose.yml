@@ -92,6 +92,9 @@ services:
     restart: always
     ports:
       - "${AUTH_PORT:-8001}:8001"
+    dns:
+      - 8.8.8.8
+      - 114.114.114.114
     environment:
       SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-prod}
       # JVM内存优化参数
@@ -104,6 +107,8 @@ services:
         -XX:+UseContainerSupport
         -XX:+UseStringDeduplication
         -Djava.security.egd=file:/dev/./urandom
+      # APP_DOMAIN
+      APP_DOMAIN: ${APP_DOMAIN}
       # Nacos配置（外部）
       NACOS_SERVER_ADDR: ${NACOS_SERVER_ADDR}
       NACOS_NAMESPACE: ${NACOS_NAMESPACE}
@@ -127,6 +132,9 @@ services:
       # 微信小程序配置
       WECHAT_MINIPROGRAM_APPID: ${WECHAT_MINIPROGRAM_APPID}
       WECHAT_MINIPROGRAM_SECRET: ${WECHAT_MINIPROGRAM_SECRET}
+      # 微信web配置
+      WECHAT_WEB_APPID: ${WECHAT_WEB_APPID}
+      WECHAT_WEB_APPSECRET: ${WECHAT_WEB_APPSECRET}
       # 邮件配置
       MAIL_HOST: ${MAIL_HOST}
       MAIL_PORT: ${MAIL_PORT}
@@ -143,6 +151,16 @@ services:
       SPRING_MAIL_PROPERTIES_MAIL_SMTP_SOCKETFACTORY_FALLBACK: "false"
       SPRING_MAIL_PROPERTIES_MAIL_SMTP_TIMEOUT: "5000"
       SPRING_MAIL_PROPERTIES_MAIL_SMTP_CONNECTIONTIMEOUT: "5000"
+      # GitHub OAuth配置
+      GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID}
+      GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET}
+      # 支付宝OAuth配置
+      ALIPAY_APP_ID: ${ALIPAY_APP_ID}
+      ALIPAY_PRIVATE_KEY: ${ALIPAY_PRIVATE_KEY}
+      ALIPAY_PUBLIC_KEY: ${ALIPAY_PUBLIC_KEY}
+      # QQ OAuth配置
+      QQ_APP_ID: ${QQ_APP_ID}
+      QQ_APP_KEY: ${QQ_APP_KEY}
       # 日志配置
     working_dir: /app
     command: ["./bin/start.sh"]
