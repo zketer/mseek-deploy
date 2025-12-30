@@ -462,6 +462,14 @@ cp -r deployment/data/minio deployment/data/minio.backup.$(date +%Y%m%d)
 - **配置文件示例**: [config/prod.example.env](./config/prod.example.env)
 - **Docker Compose 配置**: [docker-compose.yml](./docker-compose.yml)
 
+| 资源 | 链接 | 说明 |
+|-----|------|------|
+| 后端 | [查看](https://github.com/zketer/mseek-admin-backend) | mseek-admin-backend |
+| 前端 | [查看](https://github.com/zketer/mseek-admin-frontend) | mseek-admin-frontend |
+| 部署 | [查看](https://github.com/zketer/mseek-deploy) | mseek-deploy |
+| app | [查看](https://github.com/zketer/mseek-app) | mseek-app |
+---
+
 ### 外部资源
 
 | 资源 | 链接 | 说明 |
